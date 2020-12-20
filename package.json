@@ -1,0 +1,40 @@
+{
+  "name": "magicpatch",
+  "version": "0.9.0",
+  "description": "Adds IPython / Jupyter magic commands to IJavascript",
+  "main": "index.js",
+  "bin": {
+    "magicpatch-location": "bin/magicPatchLocation.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apowers313/magicpatch.git"
+  },
+  "keywords": [
+    "jupyter",
+    "ipython",
+    "ijavascript",
+    "magic",
+    "magics"
+  ],
+  "author": "Adam Powers <apowers@ato.ms>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apowers313/magicpatch/issues"
+  },
+  "homepage": "https://github.com/apowers313/magicpatch#readme",
+  "devDependencies": {
+    "eslint": "^7.16.0",
+    "eslint-plugin-jsdoc": "^30.7.9",
+    "eslint-plugin-mocha": "^8.0.0",
+    "eslint-plugin-old-c-programmer": "^1.0.1",
+    "mocha": "^8.2.1"
+  }
+}
