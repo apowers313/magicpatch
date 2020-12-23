@@ -1,6 +1,8 @@
 const stdMocks = require("std-mocks");
-const {assert} = require("chai");
+const chai = require("chai");
+chai.use(require("chai-string"));
 const {builtin} = require("./magicpatch");
+const {assert} = chai;
 
 function getMagic(name) {
     const {magicMap} = builtin;
@@ -40,6 +42,7 @@ function runMagic(code, captureOutput = true) {
 
 function testMagic(code, val, stdout = [], stderr = []) {
     const output = runMagic(code);
+    // console.log("OUTPUT", output);
     assert.strictEqual(output.val, val);
     assert.strictEqual(output.stdout.length, stdout.length, "wrong number of stdout lines");
     assert.strictEqual(output.stderr.length, stderr.length, "wrong number of stderr lines");
@@ -47,7 +50,7 @@ function testMagic(code, val, stdout = [], stderr = []) {
         if (stdout[i] instanceof RegExp) {
             assert.match(output.stdout[i], stdout[i]);
         } else {
-            assert.strictEqual(output.stdout[i], stdout[i]);
+            assert.startsWith(output.stdout[i], stdout[i]);
         }
     }
 
@@ -55,7 +58,7 @@ function testMagic(code, val, stdout = [], stderr = []) {
         if (stderr[i] instanceof RegExp) {
             assert.match(output.stderr[i], stderr[i]);
         } else {
-            assert.strictEqual(output.stderr[i], stderr[i]);
+            assert.startsWith(output.stderr[i], stderr[i]);
         }
     }
 }

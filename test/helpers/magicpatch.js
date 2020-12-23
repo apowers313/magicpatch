@@ -4,7 +4,7 @@ if (typeof global.vm !== "object") {
 
 if (typeof global.$$ !== "object") {
     global.$$ = {};
-    global.$$.mime = (... args) => console.log(... args);
+    global.$$.mime = (obj) => console.log(obj["text/markdown"]);
     global.$$.html = (... args) => console.log(... args);
 }
 
