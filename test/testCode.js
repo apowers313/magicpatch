@@ -11,8 +11,8 @@ ${getMagic("%echo").fn.toString()}
 __File:__ /`;
 
 describe("source", function() {
-    it("question mark before", function() {
-        testMagic(
+    it("question mark before", async function() {
+        await testMagic(
             // magic command
             "??%echo",
             // return value
@@ -24,8 +24,8 @@ describe("source", function() {
         );
     });
 
-    it("question mark after", function() {
-        testMagic(
+    it("question mark after", async function() {
+        await testMagic(
             // magic command
             "%echo??",
             // return value

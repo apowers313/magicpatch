@@ -12,8 +12,8 @@ Write arguments to the standard output.<br>
 __File:__ /`;
 
 describe("docs", function() {
-    it("question mark before", function() {
-        testMagic(
+    it("question mark before", async function() {
+        await testMagic(
             // magic command
             "?%echo",
             // return value
@@ -25,8 +25,8 @@ describe("docs", function() {
         );
     });
 
-    it("question mark after", function() {
-        testMagic(
+    it("question mark after", async function() {
+        await testMagic(
             // magic command
             "%echo?",
             // return value

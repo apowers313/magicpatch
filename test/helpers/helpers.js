@@ -13,37 +13,34 @@ function getMagic(name) {
     return magicObj;
 }
 
-function runMagic(code, captureOutput = true) {
-    if (captureOutput) {
-        stdMocks.use();
-    }
+async function runMagic(code, showOutput = false) {
+    stdMocks.use();
 
-    let val = global.vm.runInThisContext(code);
+    let val = await global.vm.runInThisContext(code);
 
-    let ret;
-    if (captureOutput) {
-        stdMocks.restore();
-        ret = stdMocks.flush();
-    } else {
-        ret = {};
-        ret.stdout = [];
-        ret.stderr = [];
-    }
-
-    // for (let line of ret.stdout) {
-    //     console.log(line);
-    // }
-    // for (let line of ret.stderr) {
-    //     console.error(line);
-    // }
+    stdMocks.restore();
+    let ret = stdMocks.flush();
     ret.val = val;
+
+    if (showOutput) {
+        console.log(`STDOUT: "${ret.stdout.join("")}"`);
+        console.log(`STDERR: "${ret.stderr.join("")}"`);
+        console.log("OUTPUT:", val);
+    }
+
     return ret;
 }
 
-function testMagic(code, val, stdout = [], stderr = []) {
-    const output = runMagic(code);
-    // console.log("OUTPUT", output);
-    assert.strictEqual(output.val, val);
+async function testMagic(code, val, stdout = [], stderr = [], showOutput = false) {
+    const output = await runMagic(code, showOutput);
+    if (typeof val === "object") {
+        console.log("output.val", output.val);
+        console.log("val", val);
+        assert.deepEqual(output.val, val);
+    } else {
+        assert.strictEqual(output.val, val);
+    }
+
     assert.strictEqual(output.stdout.length, stdout.length, "wrong number of stdout lines");
     assert.strictEqual(output.stderr.length, stderr.length, "wrong number of stderr lines");
     for (let i = 0; i < stdout.length; i++) {

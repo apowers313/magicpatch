@@ -8,4 +8,11 @@ if (typeof global.$$ !== "object") {
     global.$$.html = (... args) => console.log(... args);
 }
 
+const {Console} = require("console");
+global.console = new Console({
+    stdout: process.stdout,
+    stderr: process.stderr,
+    colorMode: false,
+});
+
 module.exports = require("../..");
