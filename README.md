@@ -23,6 +23,7 @@ Examples can be found TODO
 * %echo
 * %require
 * %addmagic, $$.addMagic
+* %automagic
 
 ## stdmagic
 * stdmagic
