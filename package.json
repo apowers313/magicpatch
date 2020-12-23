@@ -31,10 +31,15 @@
   },
   "homepage": "https://github.com/apowers313/magicpatch#readme",
   "devDependencies": {
+    "chai": "^4.2.0",
     "eslint": "^7.16.0",
     "eslint-plugin-jsdoc": "^30.7.9",
     "eslint-plugin-mocha": "^8.0.0",
     "eslint-plugin-old-c-programmer": "^1.0.1",
-    "mocha": "^8.2.1"
+    "mocha": "^8.2.1",
+    "std-mocks": "^1.0.1"
+  },
+  "dependencies": {
+    "commander": "^6.2.1"
   }
 }
