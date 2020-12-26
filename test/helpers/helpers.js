@@ -33,9 +33,11 @@ async function runMagic(code, showOutput = false) {
 
 async function testMagic(code, val, stdout = [], stderr = [], showOutput = false) {
     const output = await runMagic(code, showOutput);
+    if (showOutput) {
+        console.log("test output:", output);
+    }
+
     if (typeof val === "object") {
-        console.log("output.val", output.val);
-        console.log("val", val);
         assert.deepEqual(output.val, val);
     } else {
         assert.strictEqual(output.val, val);

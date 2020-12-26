@@ -33,14 +33,18 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-string": "^1.5.0",
+    "doctoc": "^2.0.0",
     "eslint": "^7.16.0",
     "eslint-plugin-jsdoc": "^30.7.9",
     "eslint-plugin-mocha": "^8.0.0",
     "eslint-plugin-old-c-programmer": "^1.0.1",
     "mocha": "^8.2.1",
+    "mock-spawn": "^0.2.6",
+    "mockery": "^2.1.0",
     "std-mocks": "^1.0.1"
   },
   "dependencies": {
-    "commander": "^6.2.1"
+    "commander": "^6.2.1",
+    "tmp": "^0.2.1"
   }
 }
