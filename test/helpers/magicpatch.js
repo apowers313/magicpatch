@@ -1,5 +1,5 @@
+// fake 'spawn()' for !cmd testing
 const mockery = require("mockery");
-
 const mockSpawn = require("mock-spawn");
 let mySpawn = mockSpawn();
 mySpawn.setStrategy(function(command, args, opts) {
@@ -63,7 +63,6 @@ mySpawn.setStrategy(function(command, args, opts) {
         return null;
     }
 });
-
 const spawnMock = {
     spawn: mySpawn,
 };
@@ -73,16 +72,19 @@ mockery.enable({
     warnOnUnregistered: false,
 });
 
+// REPL comes with modules already loaded at the global level
 if (typeof global.vm !== "object") {
     global.vm = require("vm");
 }
 
+// NEL creates a global.$$ object
 if (typeof global.$$ !== "object") {
     global.$$ = {};
     global.$$.mime = (obj) => console.log(obj["text/markdown"]);
     global.$$.html = (... args) => console.log(... args);
 }
 
+// no color output
 const {Console} = require("console");
 global.console = new Console({
     stdout: process.stdout,
@@ -90,4 +92,5 @@ global.console = new Console({
     colorMode: false,
 });
 
+// now that we've setup appropriately, export the magicpatch main module
 module.exports = require("../..");

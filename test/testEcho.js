@@ -12,6 +12,23 @@ describe("echo", function() {
             ["this is a test\n"],
             // stderr
             [],
+            // show output
+            // true,
+        );
+    });
+
+    it("works with assignment", async function() {
+        await testMagic(
+            // magic command
+            "res = %echo this is a test",
+            // return value
+            undefined,
+            // stdout
+            ["this is a test\n"],
+            // stderr
+            [],
+            // show output
+            // true,
         );
     });
 });

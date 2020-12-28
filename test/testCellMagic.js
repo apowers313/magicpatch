@@ -5,7 +5,7 @@ describe("cell magic", function() {
     it("runs program", async function() {
         await testMagic(
             // magic command
-            "%%shell bash\n" +
+            "%%script bash\n" +
             "for (( i = 0; i < 5; i++ ))\n" +
             "    do echo loop $i\n" +
             "done\n",

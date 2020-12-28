@@ -24,4 +24,16 @@ describe("output cache", function() {
         await runMagic("747");
         testOutputCache(747, true, "bob");
     });
+
+    it("resolves promises", async function() {
+        testOutputCache(undefined, undefined, undefined);
+        await runMagic("%asyncval 3.14159");
+        testOutputCache("3.14159", undefined, undefined);
+        await runMagic("%asyncval sally");
+        testOutputCache("sally", "3.14159", undefined);
+        await runMagic("%asyncval true");
+        testOutputCache("true", "sally", "3.14159");
+        await runMagic("%asyncval minecraft");
+        testOutputCache("minecraft", "true", "sally");
+    });
 });

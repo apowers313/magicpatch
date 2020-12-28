@@ -13,6 +13,7 @@ function getMagic(name) {
     return magicObj;
 }
 
+// TODO: rename to callMagic()
 async function runMagic(code, showOutput = false) {
     stdMocks.use();
 
@@ -61,6 +62,17 @@ async function testMagic(code, val, stdout = [], stderr = [], showOutput = false
         }
     }
 }
+
+// a simple little async magic that returns whatever value is passed to it
+function asyncVal(cmd, val) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(val);
+        }, 1);
+    });
+}
+
+global.$$.addMagic("%asyncval", {fn: asyncVal});
 
 module.exports = {
     getMagic,

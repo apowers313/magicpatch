@@ -58,4 +58,17 @@ describe("variable substitution", function() {
             [],
         );
     });
+
+    it("throws on missing var", async function() {
+        await testMagic(
+            // magic command
+            "%echo {thisvariablehopefullydoesntexist}",
+            // return value
+            undefined,
+            // stdout
+            [],
+            // stderr
+            ["ReferenceError: thisvariablehopefullydoesntexist is not defined"],
+        );
+    });
 });
