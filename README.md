@@ -4,11 +4,15 @@ Adds functionality to the [Jupyter](https://jupyter.org/) [IJavascript](http://n
 __work in progress__
 
 # Install
+In Linux or MacOS:
 ``` sh
 # install IJavascript as usual
 npm install -g magicpatch
 ijsinstall --startup-script=`magicpatch-location`
 ```
+
+Windows:
+[TODO: Anyone want to volunteer to figure this out and send me the output?]
 
 # Table of Contents
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -17,10 +21,13 @@ ijsinstall --startup-script=`magicpatch-location`
 - [Features](#features)
   - [%magic](#%25magic)
   - [!cmd](#cmd)
+  - [var assignment](#var-assignment)
   - [{var} substitution](#var-substitution)
   - [output caching](#output-caching)
   - [input caching](#input-caching)
   - [online help: ?%magic, %magic?, ??%magic, %magic??](#online-help-%25magic-%25magic-%25magic-%25magic)
+  - [%%cellmagic](#%25llmagic)
+- [Examples](#examples)
 - [built in magics](#built-in-magics)
 - [stdmagic](#stdmagic)
 - [Adding your own magics](#adding-your-own-magics)
@@ -34,19 +41,22 @@ Wherever possible, this module tries to mimic the features of [IPython experienc
 ## %magic
 See built in magics for magics included in this package.
 ## !cmd
+## var assignment
 ## {var} substitution
 ## output caching
 ## input caching
 ## online help: ?%magic, %magic?, ??%magic, %magic??
+## %%cellmagic
 
+# Examples
 Examples can be found TODO
 
-# built in magics
+# Built in Magics
 * %echo
 * %require
 * %addmagic, $$.addMagic
 * %automagic
-* %shell
+* %%script
 
 # stdmagic
 * stdmagic
@@ -58,26 +68,27 @@ Examples can be found TODO
   * name, function
     * function args
     * function properties
-      * doc: cmdObj.doc || cmdObj.fn.doc
-      * brief: cmdObj.brief || cmdObj.fn.brief
+      * doc: magicObj.doc || magicObj.fn.doc
+      * brief: magicObj.brief || magicObj.fn.brief
       * ctx
       * file
     * function context
       * exec
-      * cmdMap
+      * magicMap
       * history
       * args
       * line
       * code
       * ctx
-  * name, cmdObj
+  * name, magicObj
   * documentation
-    * cmdObj.doc || cmdObj.fn.doc
-    * cmdObj.brief || cmdObj.fn.brief
+    * magicObj.doc || magicObj.fn.doc
+    * magicObj.brief || magicObj.fn.brief
   * advanced features
     * any symbol allowed
     * special matcher
     * any other properties
+    * cell magic: fn.cellMagic = true
 
 # Philosophy
 * productivity
