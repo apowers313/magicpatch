@@ -9,7 +9,7 @@ const {execSync} = require("child_process");
 let magicpatch;
 try {
     magicpatch = require("./lib/interpreter");
-} catch (e) {
+} catch (e) /* istanbul ignore next */ {
     let magicpatchPath = path.dirname(execSync("magicpatch-location", {encoding: "utf8"}));
     magicpatch = require(path.join(magicpatchPath, "./lib/interpreter"));
 }
