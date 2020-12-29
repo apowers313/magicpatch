@@ -9,3 +9,5 @@ yarn.lock
 .DS_Store
 *~
 Untitled*.ipynb
+.nyc_output/
+coverage
