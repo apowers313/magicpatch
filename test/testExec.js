@@ -66,4 +66,29 @@ describe("exec", function() {
             [],
         );
     });
+
+    it("allows space after !", async function() {
+        await testMagic(
+            // magic command
+            "! ls",
+            // return value
+            0,
+            // stdout
+            [
+                "THIS IS MOCKED OUTPUT\n" +
+                "README.md\n" +
+                "bin\n" +
+                "examples\n" +
+                "index.js\n" +
+                "lib\n" +
+                "node_modules\n" +
+                "package-lock.json\n" +
+                "package.json\n" +
+                "test",
+                "[ process 'ls' exited with code 0 ]",
+            ],
+            // stderr
+            [],
+        );
+    });
 });

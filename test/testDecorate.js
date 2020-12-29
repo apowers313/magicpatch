@@ -33,6 +33,10 @@ describe("decoration", function() {
         assert.match(magicObj.file, /\/magicpatch\/lib\/builtin\.js$/);
     });
 
+    it("errors on bad fn");
+    it("errors on bad file");
+    it("errors on bad brief");
+    it("errors on bad options");
     it("adds doc with options");
     it("adds parser");
 });

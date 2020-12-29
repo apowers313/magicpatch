@@ -326,4 +326,19 @@ describe("automagic", function() {
             [],
         );
     });
+
+    it("errors on unknown state", async function() {
+        await testMagic(
+            // magic command
+            "%automagic floogle",
+            // return value
+            undefined,
+            // stdout
+            [],
+            // stderr
+            ["Unknown %automagic value: 'floogle'. Expected one of (1, true, on) or (0, false, off)"],
+            // show output
+            // true,
+        );
+    });
 });

@@ -13,7 +13,7 @@ function getMagic(name) {
     return magicObj;
 }
 
-// TODO: rename to callMagic()
+// TODO: rename to runCode()
 async function runMagic(code, showOutput = false) {
     stdMocks.use();
 
@@ -49,6 +49,8 @@ async function testMagic(code, val, stdout = [], stderr = [], showOutput = false
     for (let i = 0; i < stdout.length; i++) {
         if (stdout[i] instanceof RegExp) {
             assert.match(output.stdout[i], stdout[i]);
+        } else if (typeof stdout[i] === "function") {
+            stdout[i](output.stdout[i]);
         } else {
             assert.startsWith(output.stdout[i], stdout[i]);
         }
@@ -57,6 +59,8 @@ async function testMagic(code, val, stdout = [], stderr = [], showOutput = false
     for (let i = 0; i < stderr.length; i++) {
         if (stderr[i] instanceof RegExp) {
             assert.match(output.stderr[i], stderr[i]);
+        } else if (typeof stderr[i] === "function") {
+            stderr[i](output.stderr[i]);
         } else {
             assert.startsWith(output.stderr[i], stderr[i]);
         }

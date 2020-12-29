@@ -11,7 +11,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test",
+    "coverage": "nyc --reporter=lcov --reporter=text-summary npm test"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,7 @@
     "mocha": "^8.2.1",
     "mock-spawn": "^0.2.6",
     "mockery": "^2.1.0",
+    "nyc": "^15.1.0",
     "std-mocks": "^1.0.1"
   },
   "dependencies": {
