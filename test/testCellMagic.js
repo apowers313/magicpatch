@@ -23,7 +23,9 @@ describe("cell magic", function() {
             // stderr
             [],
             // show output
-            false,
+            // true,
         );
     });
+
+    it("passes args to script");
 });
