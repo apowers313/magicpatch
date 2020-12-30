@@ -1,6 +1,7 @@
 require("./helpers/magicpatch");
 const {getMagic} = require("./helpers/helpers");
 const {assert} = require("chai");
+// TODO: use $$.addMagic.utils.decorateMagic instead of relying on %echo's decorations
 
 describe("decoration", function() {
     it("adds brief", function() {
@@ -38,5 +39,5 @@ describe("decoration", function() {
     it("errors on bad brief");
     it("errors on bad options");
     it("adds doc with options");
-    it("adds parser");
+    it("adds argsParser");
 });
