@@ -2,7 +2,7 @@
 const mockery = require("mockery");
 const mockSpawn = require("mock-spawn");
 let mySpawn = mockSpawn();
-mySpawn.setStrategy(function(command, args, opts) {
+mySpawn.setStrategy(function(command, args) {
     command = `${command}${args.length ? " " : ""}${args.join(" ")}`;
     if (/^bash /.test(command)) {
         command = "bash";
@@ -55,6 +55,18 @@ mySpawn.setStrategy(function(command, args, opts) {
                 "loop 2\n" +
                 "loop 3\n" +
                 "loop 4\n",
+            );
+            return cb(0);
+        };
+    case "fourlines":
+        return function(cb) {
+            this.stdout.write(
+                "stdout one\n" +
+                "stdout two\n",
+            );
+            this.stderr.write(
+                "stderr one\n" +
+                "stderr two\n",
             );
             return cb(0);
         };
