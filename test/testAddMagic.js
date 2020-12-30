@@ -3,7 +3,6 @@ const {testMagic} = require("./helpers/helpers");
 
 describe("%addmagic", function() {
     it("errors on magic without symbol", async function() {
-        // %addmagic foo bar
         await testMagic(
             // magic command
             "%addmagic foo bar",
