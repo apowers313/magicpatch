@@ -1,16 +1,16 @@
 require("./helpers/magicpatch");
 const {testMagic} = require("./helpers/helpers");
+const {assert} = require("chai");
+const stdMocks = require("std-mocks");
+let {exec} = global.$$.addMagic.utils;
 
 describe("exec", function() {
-    // beforeEach(function() {
-    //     mockery.enable();
-    //     mockery.registerMock("child_process", spawnMock);
-    // });
-
-    // afterEach(function() {
-    //     mockery.deregisterMock("child_process");
-    //     mockery.disable();
-    // });
+    it("is global util", function() {
+        // assert.isObject(global.$$);
+        // assert.isFunction(global.$$.addMagic);
+        // assert.isObject(global.$$.addMagic.utils);
+        assert.isFunction(exec);
+    });
 
     it("ls", async function() {
         await testMagic(
@@ -90,5 +90,63 @@ describe("exec", function() {
             // stderr
             [],
         );
+    });
+
+    it("captures stdout", async function() {
+        stdMocks.use();
+
+        let ret = await exec("fourlines", [], {captureStdout: true});
+        stdMocks.restore();
+        let output = stdMocks.flush();
+
+        assert.isArray(ret);
+        assert.strictEqual(ret.length, 3);
+        assert.strictEqual(ret[0], "stdout one");
+        assert.strictEqual(ret[1], "stdout two");
+        assert.strictEqual(ret[2], "");
+
+        assert.strictEqual(output.stdout.length, 1);
+        assert.strictEqual(output.stdout[0], "[ process 'fourlines' exited with code 0 ]\n");
+        assert.strictEqual(output.stderr.length, 1);
+        assert.strictEqual(output.stderr[0], "stderr one\nstderr two\n");
+    });
+
+    it("captures stderr", async function() {
+        stdMocks.use();
+
+        let ret = await exec("fourlines", [], {captureStderr: true});
+        stdMocks.restore();
+        let output = stdMocks.flush();
+
+        assert.isArray(ret);
+        assert.strictEqual(ret.length, 3);
+        assert.strictEqual(ret[0], "stderr one");
+        assert.strictEqual(ret[1], "stderr two");
+        assert.strictEqual(ret[2], "");
+
+        assert.strictEqual(output.stdout.length, 2);
+        assert.strictEqual(output.stdout[0], "stdout one\nstdout two\n");
+        assert.strictEqual(output.stdout[1], "[ process 'fourlines' exited with code 0 ]\n");
+        assert.strictEqual(output.stderr.length, 0);
+    });
+
+    it("captures all output", async function() {
+        stdMocks.use();
+
+        let ret = await exec("fourlines", [], {captureOutput: true});
+        stdMocks.restore();
+        let output = stdMocks.flush();
+
+        assert.isArray(ret);
+        assert.strictEqual(ret.length, 5);
+        assert.strictEqual(ret[0], "stdout one");
+        assert.strictEqual(ret[1], "stdout two");
+        assert.strictEqual(ret[2], "stderr one");
+        assert.strictEqual(ret[3], "stderr two");
+        assert.strictEqual(ret[4], "");
+
+        assert.strictEqual(output.stdout.length, 1);
+        assert.strictEqual(output.stdout[0], "[ process 'fourlines' exited with code 0 ]\n");
+        assert.strictEqual(output.stderr.length, 0);
     });
 });
