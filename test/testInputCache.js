@@ -1,5 +1,5 @@
 require("./helpers/magicpatch");
-const {runMagic} = require("./helpers/helpers");
+const {runCode} = require("./helpers/helpers");
 const {assert} = require("chai");
 
 function testInputCache(cmdHistory, offset) {
@@ -36,13 +36,13 @@ describe("input cache", function() {
 
     it("keeps list", async function() {
         // testInputCache([undefined, undefined, undefined]);
-        await runMagic("42");
+        await runCode("42");
         testInputCache(["42", undefined, undefined], 0);
-        await runMagic("'bob'");
+        await runCode("'bob'");
         testInputCache(["42", "'bob'", undefined], 1);
-        await runMagic("true");
+        await runCode("true");
         testInputCache(["42", "'bob'", "true"], 2);
-        await runMagic("747");
+        await runCode("747");
         testInputCache(["42", "'bob'", "true", "747"], 3);
     });
 });

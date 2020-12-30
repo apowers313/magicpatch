@@ -1,5 +1,5 @@
 require("./helpers/magicpatch");
-const {runMagic, testMagic} = require("./helpers/helpers");
+const {runCode, testMagic} = require("./helpers/helpers");
 const {assert} = require("chai");
 
 function testOutputCache(last, lastLast, lastX3) {
@@ -29,25 +29,25 @@ describe("output cache", function() {
 
     it("rotates values", async function() {
         testOutputCache(undefined, undefined, undefined);
-        await runMagic("42");
+        await runCode("42");
         testOutputCache(42, undefined, undefined);
-        await runMagic("'bob'");
+        await runCode("'bob'");
         testOutputCache("bob", 42, undefined);
-        await runMagic("true");
+        await runCode("true");
         testOutputCache(true, "bob", 42);
-        await runMagic("747");
+        await runCode("747");
         testOutputCache(747, true, "bob");
     });
 
     it("resolves promises", async function() {
         testOutputCache(undefined, undefined, undefined);
-        await runMagic("%asyncval 3.14159");
+        await runCode("%asyncval 3.14159");
         testOutputCache("3.14159", undefined, undefined);
-        await runMagic("%asyncval sally");
+        await runCode("%asyncval sally");
         testOutputCache("sally", "3.14159", undefined);
-        await runMagic("%asyncval true");
+        await runCode("%asyncval true");
         testOutputCache("true", "sally", "3.14159");
-        await runMagic("%asyncval minecraft");
+        await runCode("%asyncval minecraft");
         testOutputCache("minecraft", "true", "sally");
     });
 
@@ -58,7 +58,7 @@ describe("output cache", function() {
         }
 
         testOutputCache(undefined, undefined, undefined);
-        await runMagic("42");
+        await runCode("42");
         testOutputCache(42, undefined, undefined);
         await testMagic( // asdfasdfasdf is undefined, should throw reference error
             // magic command
@@ -73,9 +73,9 @@ describe("output cache", function() {
             // true,
         );
         testOutputCache(testError, 42, undefined);
-        await runMagic("true");
+        await runCode("true");
         testOutputCache(true, testError, 42);
-        await runMagic("747");
+        await runCode("747");
         testOutputCache(747, true, testError);
     });
 });

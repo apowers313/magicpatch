@@ -13,8 +13,7 @@ function getMagic(name) {
     return magicObj;
 }
 
-// TODO: rename to runCode()
-async function runMagic(code, showOutput = false) {
+async function runCode(code, showOutput = false) {
     stdMocks.use();
 
     let val = await global.vm.runInThisContext(code);
@@ -33,7 +32,7 @@ async function runMagic(code, showOutput = false) {
 }
 
 async function testMagic(code, val, stdout = [], stderr = [], showOutput = false) {
-    const output = await runMagic(code, showOutput);
+    const output = await runCode(code, showOutput);
     if (showOutput) {
         console.log("test output:", output);
     }
@@ -80,6 +79,6 @@ global.$$.addMagic("%asyncval", {fn: asyncVal});
 
 module.exports = {
     getMagic,
-    runMagic,
+    runCode,
     testMagic,
 };

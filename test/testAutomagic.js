@@ -1,10 +1,10 @@
 require("./helpers/magicpatch");
-const {runMagic, testMagic} = require("./helpers/helpers");
+const {runCode, testMagic} = require("./helpers/helpers");
 
 describe("automagic", function() {
     it("toggles with no arg", async function() {
-        await runMagic("%automagic on");
-        await runMagic("%automagic");
+        await runCode("%automagic on");
+        await runCode("%automagic");
         await testMagic(
             // magic command
             "%echo this is a test",
@@ -25,7 +25,7 @@ describe("automagic", function() {
             // stderr
             [/^SyntaxError: Unexpected token 'this'$/gm],
         );
-        await runMagic("%automagic");
+        await runCode("%automagic");
         await testMagic(
             // magic command
             "%echo this is a test",
@@ -49,7 +49,7 @@ describe("automagic", function() {
     });
 
     it("turns on for 'on'", async function() {
-        await runMagic("%automagic on");
+        await runCode("%automagic on");
         await testMagic(
             // magic command
             "%echo this is a test",
@@ -73,7 +73,7 @@ describe("automagic", function() {
     });
 
     it("turns on for '1'", async function() {
-        await runMagic("%automagic 1");
+        await runCode("%automagic 1");
         await testMagic(
             // magic command
             "%echo this is a test",
@@ -97,7 +97,7 @@ describe("automagic", function() {
     });
 
     it("turns on for 'true'", async function() {
-        await runMagic("%automagic true");
+        await runCode("%automagic true");
         await testMagic(
             // magic command
             "%echo this is a test",
@@ -121,7 +121,7 @@ describe("automagic", function() {
     });
 
     it("turns off for 'off'", async function() {
-        await runMagic("%automagic off");
+        await runCode("%automagic off");
         await testMagic(
             // magic command
             "%echo this is a test",
@@ -145,7 +145,7 @@ describe("automagic", function() {
     });
 
     it("turns off for '0'", async function() {
-        await runMagic("%automagic 0");
+        await runCode("%automagic 0");
         await testMagic(
             // magic command
             "%echo this is a test",
@@ -169,7 +169,7 @@ describe("automagic", function() {
     });
 
     it("turns off for 'false'", async function() {
-        await runMagic("%automagic false");
+        await runCode("%automagic false");
         await testMagic(
             // magic command
             "%echo this is a test",
@@ -193,7 +193,7 @@ describe("automagic", function() {
     });
 
     it("works without args", async function() {
-        await runMagic("%automagic false");
+        await runCode("%automagic false");
         await testMagic(
             // magic command
             "%echo",
@@ -214,7 +214,7 @@ describe("automagic", function() {
             // stderr
             [/^ReferenceError: echo is not defined$/gm],
         );
-        await runMagic("%automagic true");
+        await runCode("%automagic true");
         await testMagic(
             // magic command
             "%echo",
@@ -238,7 +238,7 @@ describe("automagic", function() {
     });
 
     it("works with doc before", async function() {
-        await runMagic("%automagic false");
+        await runCode("%automagic false");
         await testMagic(
             // magic command
             "?%echo",
@@ -259,7 +259,7 @@ describe("automagic", function() {
             // stderr
             [/^SyntaxError: Unexpected token '\?'$/gm],
         );
-        await runMagic("%automagic true");
+        await runCode("%automagic true");
         await testMagic(
             // magic command
             "?%echo",
@@ -283,7 +283,7 @@ describe("automagic", function() {
     });
 
     it("works with doc after", async function() {
-        await runMagic("%automagic false");
+        await runCode("%automagic false");
         await testMagic(
             // magic command
             "%echo?",
@@ -304,7 +304,7 @@ describe("automagic", function() {
             // stderr
             [/^SyntaxError: Unexpected end of input$/gm],
         );
-        await runMagic("%automagic true");
+        await runCode("%automagic true");
         await testMagic(
             // magic command
             "%echo?",
@@ -341,4 +341,6 @@ describe("automagic", function() {
             // true,
         );
     });
+
+    it("prints automagic status");
 });

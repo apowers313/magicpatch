@@ -1,9 +1,9 @@
 require("./helpers/magicpatch");
-const {runMagic, testMagic} = require("./helpers/helpers");
+const {runCode, testMagic} = require("./helpers/helpers");
 
 describe("variable substitution", function() {
     it("replaces simple variable", async function() {
-        await runMagic("x = 42");
+        await runCode("x = 42");
         await testMagic(
             // magic command
             "%echo {x}",
@@ -17,7 +17,7 @@ describe("variable substitution", function() {
     });
 
     it("replaces object", async function() {
-        await runMagic("let o = {foo: 'bar'}");
+        await runCode("let o = {foo: 'bar'}");
         await testMagic(
             // magic command
             "%echo {o}",
@@ -31,7 +31,7 @@ describe("variable substitution", function() {
     });
 
     it("replaces mid-string", async function() {
-        await runMagic("x = 42");
+        await runCode("x = 42");
         await testMagic(
             // magic command
             "%echo hi{x}there",
@@ -45,8 +45,8 @@ describe("variable substitution", function() {
     });
 
     it("complex string replacement", async function() {
-        await runMagic("x = 42");
-        await runMagic("let o = {foo: 'bar'}");
+        await runCode("x = 42");
+        await runCode("let o = {foo: 'bar'}");
         await testMagic(
             // magic command
             "%echo hi{x}there{o}bob",
@@ -56,6 +56,22 @@ describe("variable substitution", function() {
             ["hi42there[object Object]bob"],
             // stderr
             [],
+        );
+    });
+
+    it("beginning of string replacement", async function() {
+        await testMagic(
+            // magic command
+            "helperDir = './test/helpers'\n" +
+            "%require {helperDir}/testModule.js",
+            // return value
+            {source: "helpers/testModule.js", worked: true},
+            // stdout
+            [/\[ loading \//],
+            // stderr
+            [],
+            // show output
+            // true,
         );
     });
 
