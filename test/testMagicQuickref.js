@@ -2,7 +2,7 @@ require("./helpers/magicpatch");
 const {runCode} = require("./helpers/helpers");
 const {assert} = require("chai");
 
-describe.only("quickref", function() {
+describe.skip("quickref", function() {
     it("shows quick reference", async function() {
         let ret = await runCode("%quickref", true);
         assert.strictEqual(ret.stdout[0], "IJavascript + magicpatch -- An enhanced Interactive JavaScript - Quick Reference Card\n");

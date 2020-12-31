@@ -1,11 +1,12 @@
+/* global $$ */
+
 const stdMocks = require("std-mocks");
 const chai = require("chai");
 chai.use(require("chai-string"));
-const {builtin} = require("./magicpatch");
 const {assert} = chai;
 
 function getMagic(name) {
-    const {magicMap} = builtin;
+    const {magicMap} = $$.addMagic;
     let magicObj = magicMap.get(name);
     assert.isObject(magicObj);
     assert.isFunction(magicObj.fn);

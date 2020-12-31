@@ -31,7 +31,7 @@ describe("decoration", function() {
     it("adds file", function() {
         let magicObj = getMagic("%echo");
         assert.strictEqual(magicObj.file, magicObj.fn.file);
-        assert.match(magicObj.file, /\/magicpatch\/lib\/builtin\.js$/);
+        assert.match(magicObj.file, /\/magicpatch\/lib\/magics\/echo\.js$/);
     });
 
     it("errors on bad fn");

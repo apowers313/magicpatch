@@ -11,7 +11,7 @@ describe("lsmagic", function() {
             // stdout
             [
                 "Available line magics:\n" +
-                "%addmagic %asyncval %automagic %echo %lsmagic %require\n",
+                "%addmagic %asyncval %automagic ",
                 "\n",
                 "Available cell magics:\n" +
                 "%%script\n",
