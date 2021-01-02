@@ -5,7 +5,7 @@ const {getMagic, testMagic, runCode} = require("./helpers/helpers");
 const {assert} = require("chai");
 const {decorateMagic} = $$.addMagic.utils;
 
-describe.only("decoration", function() {
+describe("decoration", function() {
     afterEach(function() {
         $$.addMagic.magicMap.delete("%test");
     });
@@ -257,4 +257,6 @@ describe.only("decoration", function() {
             // true,
         );
     });
+
+    it("passes through arguments");
 });
