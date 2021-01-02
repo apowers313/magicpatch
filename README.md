@@ -108,6 +108,7 @@ So far the following magics have been added.
 * %require
 * %rm
 * %rmdir
+* %sx
 * %who
 * %whos
 
