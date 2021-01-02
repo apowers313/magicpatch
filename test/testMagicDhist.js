@@ -7,7 +7,7 @@ const path = require("path");
 
 let startDir = process.cwd();
 
-describe.only("%dhist", function() {
+describe("%dhist", function() {
     afterEach(function() {
         process.chdir(startDir);
         $$.addMagic.utils.setHiddenGlobal("_dh", [process.cwd()]);
