@@ -33,6 +33,8 @@ More demos [here](https://github.com/apowers313/magicpatch/blob/master/examples/
   - [%%cellmagic](#%25llmagic)
   - [%automagic](#%25automagic)
 - [Built in Magics](#built-in-magics)
+  - [Line Magics](#line-magics)
+  - [Cell Magics](#cell-magics)
 - [Adding Magics](#adding-magics)
 - [Contributions](#contributions)
 
@@ -73,12 +75,43 @@ Cell magics allow the entire Jupyter cell to be treated differently. For example
 By default, all magics require the leading special symbol `%`, but you can turn that off for convenience using `%automagic on`. With automagic turned on, `%echo` can simply be typed `echo`.
 
 # Built in Magics
-* %addmagic, $$.addMagic
+So far the following magics have been added.
+
+## Line Magics
+* %addmagic
+* %asyncval
 * %automagic
-* %lsmagic
+* %cat
+* %cd
+* %cp
+* %dhist
+* %dirs
 * %echo
-* %require
+* %env
+* %hist
+* %history
+* %inspect
+* %load
+* %loadjs
+* %loadpy
+* %ls
+* %lsmagic
+* %mkdir
+* %mv
+* %npm
+* %pip
+* %popd
+* %pushd
+* %pwd
 * %quickref
+* %report
+* %require
+* %rm
+* %rmdir
+* %who
+* %whos
+
+## Cell Magics
 * %%script
 
 # Adding Magics
