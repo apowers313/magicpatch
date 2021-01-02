@@ -78,27 +78,26 @@ By default, all magics require the leading special symbol `%`, but you can turn 
 So far the following magics have been added.
 
 ## Line Magics
-* %addmagic
-* %asyncval
+* %addmagic (JavaScript only)
 * %automagic
 * %cat
 * %cd
 * %cp
 * %dhist
 * %dirs
-* %echo
+* %echo (JavaScript only)
 * %env
 * %hist
 * %history
-* %inspect
+* %inspect (JavaScript only)
 * %load
-* %loadjs
+* %loadjs (JavaScript only)
 * %loadpy
 * %ls
 * %lsmagic
 * %mkdir
 * %mv
-* %notify
+* %notify (JavaScript only)
 * %npm
 * %pip
 * %popd
@@ -106,7 +105,7 @@ So far the following magics have been added.
 * %pwd
 * %quickref
 * %report
-* %require
+* %require (JavaScript only)
 * %rm
 * %rmdir
 * %sx
