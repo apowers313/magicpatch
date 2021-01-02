@@ -150,5 +150,23 @@ describe("%cd", function() {
         assert.strictEqual(process.cwd(), startDir);
     });
 
-    it("bookmark");
+    it("doesn't add to dhist if directory is the same", async function() {
+        await testMagic(
+            // magic command
+            "%cd .\n" +
+            "%cd .\n" +
+            "%cd .\n",
+            // return value
+            undefined,
+            // stdout
+            [startDir, startDir, startDir],
+            // stderr
+            [],
+            // print output
+            // true,
+        );
+        assert.strictEqual(process.cwd(), startDir);
+        assert.strictEqual(global._dh.length, 1);
+        assert.strictEqual(global._dh[0], startDir);
+    });
 });
