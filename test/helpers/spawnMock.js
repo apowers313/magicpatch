@@ -93,8 +93,10 @@ mySpawn.setStrategy(function(command, args) {
         return null;
     }
 });
+
 const spawnMock = {
     spawn: mySpawn,
+    execFile: require("child_process").execFile, // for notify
 };
 mockery.registerMock("child_process", spawnMock);
 mockery.enable({

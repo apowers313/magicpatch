@@ -98,6 +98,7 @@ So far the following magics have been added.
 * %lsmagic
 * %mkdir
 * %mv
+* %notify
 * %npm
 * %pip
 * %popd
