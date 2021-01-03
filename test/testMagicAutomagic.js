@@ -342,5 +342,42 @@ describe("automagic", function() {
         );
     });
 
-    it("prints automagic status");
+    it.only("prints automagic status", async function() {
+        await testMagic(
+            // magic command
+            "%automagic on",
+            // return value
+            true,
+            // stdout
+            ["Automagic is ON, % prefix IS NOT needed for line magics."],
+            // stderr
+            [],
+            // show output
+            true,
+        );
+        await testMagic(
+            // magic command
+            "%automagic off",
+            // return value
+            false,
+            // stdout
+            ["Automagic is OFF, % prefix IS needed for line magics."],
+            // stderr
+            [],
+            // show output
+            false,
+        );
+        await testMagic(
+            // magic command
+            "%automagic",
+            // return value
+            true,
+            // stdout
+            ["Automagic is ON, % prefix IS NOT needed for line magics."],
+            // stderr
+            [],
+            // show output
+            true,
+        );
+    });
 });
