@@ -88,6 +88,32 @@ mySpawn.setStrategy(function(command, args) {
             );
             return cb(0);
         };
+    case "jupyter --version":
+        return function(cb) {
+            this.stdout.write(
+                `jupyter core     : 4.6.2
+jupyter-notebook : 6.0.3
+qtconsole        : 4.6.0
+ipython          : 7.12.0
+ipykernel        : 5.1.4
+jupyter client   : 5.3.4
+jupyter lab      : not installed
+nbconvert        : 5.6.1
+ipywidgets       : 7.5.1
+nbformat         : 5.0.4
+traitlets        : 4.3.3`,
+            );
+            return cb(0);
+        };
+    case "jupyter kernelspec list":
+        return function(cb) {
+            this.stdout.write(
+                `Available kernels:
+  javascript    /Users/ampower/Library/Jupyter/kernels/javascript
+  python3       /opt/local/Library/Frameworks/Python.framework/Versions/3.7/share/jupyter/kernels/python3`,
+            );
+            return cb(0);
+        };
     default:
         console.error(`unknown spawn command '${command}', can't mock`);
         return null;
