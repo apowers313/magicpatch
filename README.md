@@ -75,7 +75,7 @@ Cell magics allow the entire Jupyter cell to be treated differently. For example
 By default, all magics require the leading special symbol `%`, but you can turn that off for convenience using `%automagic on`. With automagic turned on, `%echo` can simply be typed `echo`.
 
 # Built in Magics
-So far the following magics have been added.
+To date, the following magics have been added:
 
 ## Line Magics
 * %addmagic (JavaScript only)
@@ -104,7 +104,7 @@ So far the following magics have been added.
 * %pushd
 * %pwd
 * %quickref
-* %report
+* %report (JavaScript only)
 * %require (JavaScript only)
 * %rm
 * %rmdir
