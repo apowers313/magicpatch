@@ -342,7 +342,7 @@ describe("automagic", function() {
         );
     });
 
-    it.only("prints automagic status", async function() {
+    it("prints automagic status", async function() {
         await testMagic(
             // magic command
             "%automagic on",
