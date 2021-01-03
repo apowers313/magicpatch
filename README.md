@@ -78,34 +78,34 @@ By default, all magics require the leading special symbol `%`, but you can turn 
 To date, the following magics have been added:
 
 ## Line Magics
-* %addmagic (JavaScript only)
+* %addmagic (magicpatch only)
 * %automagic
 * %cat
 * %cd
 * %cp
 * %dhist
 * %dirs
-* %echo (JavaScript only)
+* %echo (magicpatch only)
 * %env
 * %hist
 * %history
-* %inspect (JavaScript only)
+* %inspect (magicpatch only)
 * %load
-* %loadjs (JavaScript only)
+* %loadjs (magicpatch only)
 * %loadpy
 * %ls
 * %lsmagic
 * %mkdir
 * %mv
-* %notify (JavaScript only)
+* %notify (magicpatch only)
 * %npm
 * %pip
 * %popd
 * %pushd
 * %pwd
 * %quickref
-* %report (JavaScript only)
-* %require (JavaScript only)
+* %report (magicpatch only)
+* %require (magicpatch only)
 * %rm
 * %rmdir
 * %sx
