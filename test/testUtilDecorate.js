@@ -71,6 +71,66 @@ describe("decoration", function() {
         assert.match(magicObj.file, /\/magicpatch\/lib\/magics\/echo\.js$/);
     });
 
+    it("adds option", async function() {
+        global.testFn = function testFn() {};
+        decorateMagic(
+            global.testFn,
+            "fakepath",
+            "Test brief",
+            ["name", "%test"],
+            ["option", "-f,--foo", "does that foo thing"],
+        );
+        assert.strictEqual(global.testFn.brief, "Test brief");
+        assert.strictEqual(global.testFn.doc, "Usage: %test [options]<br>\n<br>\nTest brief<br>\n<br>\nOptions:<br>\n&nbsp;&nbsp;-f,--foo  does that foo thing<br>\n");
+        assert.strictEqual(global.testFn.file, "fakepath");
+        assert.isFunction(global.testFn.argsParser);
+    });
+
+    it("calls commander function", async function() {
+        global.testFn = function testFn() {};
+        decorateMagic(
+            global.testFn,
+            "fakepath",
+            "Test brief",
+            ["name", "%test"],
+            (program) => {
+                program
+                    .command("clone <source> [destination]")
+                    .description("clone a repository into a newly created directory")
+                    .action(() => {
+                        console.log("clone command called");
+                    });
+            },
+        );
+        assert.strictEqual(global.testFn.brief, "Test brief");
+        assert.strictEqual(global.testFn.doc, "Usage: %test [command]<br>\n<br>\nTest brief<br>\n<br>\nCommands:<br>\n&nbsp;&nbsp;clone &lt;source&gt; [destination]  clone a repository into a newly created directory<br>\n&nbsp;&nbsp;help [command]                display help for command<br>\n");
+        assert.strictEqual(global.testFn.file, "fakepath");
+        assert.isFunction(global.testFn.argsParser);
+    });
+
+    it("mixes array and function parameters", async function() {
+        global.testFn = function testFn() {};
+        decorateMagic(
+            global.testFn,
+            "fakepath",
+            "Test brief",
+            ["name", "%test"],
+            ["option", "-f,--foo", "does that foo thing"],
+            (program) => {
+                program
+                    .command("clone <source> [destination]")
+                    .description("clone a repository into a newly created directory")
+                    .action(() => {
+                        console.log("clone command called");
+                    });
+            },
+        );
+        assert.strictEqual(global.testFn.brief, "Test brief");
+        assert.strictEqual(global.testFn.doc, "Usage: %test [options] [command]<br>\n<br>\nTest brief<br>\n<br>\nOptions:<br>\n&nbsp;&nbsp;-f,--foo                      does that foo thing<br>\n<br>\nCommands:<br>\n&nbsp;&nbsp;clone &lt;source&gt; [destination]  clone a repository into a newly created directory<br>\n&nbsp;&nbsp;help [command]                display help for command<br>\n");
+        assert.strictEqual(global.testFn.file, "fakepath");
+        assert.isFunction(global.testFn.argsParser);
+    });
+
     it("errors on bad fn");
     it("errors on bad file");
     it("errors on bad brief");
