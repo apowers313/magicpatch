@@ -1,6 +1,6 @@
 {
   "name": "magicpatch",
-  "version": "0.11.2",
+  "version": "0.11.3",
   "description": "Adds IPython / Jupyter magic commands to IJavascript",
   "main": "index.js",
   "bin": {
@@ -32,27 +32,27 @@
   },
   "homepage": "https://github.com/apowers313/magicpatch#readme",
   "devDependencies": {
-    "chai": "^4.2.0",
+    "chai": "^4.3.0",
     "chai-string": "^1.5.0",
     "doctoc": "^2.0.0",
-    "eslint": "^7.16.0",
-    "eslint-plugin-jsdoc": "^30.7.9",
+    "eslint": "^7.20.0",
+    "eslint-plugin-jsdoc": "^30.7.13",
     "eslint-plugin-mocha": "^8.0.0",
     "eslint-plugin-old-c-programmer": "^1.0.1",
-    "mocha": "^8.2.1",
+    "mocha": "^8.3.0",
     "mock-spawn": "^0.2.6",
     "mockery": "^2.1.0",
     "nyc": "^15.1.0",
     "std-mocks": "^1.0.1"
   },
   "dependencies": {
-    "commander": "^6.2.1",
-    "envinfo": "^7.7.3",
+    "commander": "^7.1.0",
+    "envinfo": "^7.7.4",
     "humanize-anything": "^1.1.1",
     "is-docker": "^2.1.1",
-    "isomorphic-git": "^1.8.0",
+    "isomorphic-git": "^1.8.1",
     "node-notifier": "^9.0.0",
-    "table": "^6.0.4",
+    "table": "^6.0.7",
     "tmp": "^0.2.1"
   }
 }
