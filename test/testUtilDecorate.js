@@ -89,7 +89,7 @@ describe("decoration", function() {
             "Test brief",
             ["option", "-q"],
         );
-        assert.strictEqual(global.testFn.doc, "Usage:  [options]<br>\n<br>\nTest brief<br>\n<br>\nOptions:<br>\n&nbsp;&nbsp;-q          <br>\n");
+        assert.strictEqual(global.testFn.doc, "Usage:  [options]<br>\n<br>\nTest brief<br>\n<br>\nOptions:<br>\n&nbsp;&nbsp;-q<br>\n");
         assert.isFunction(global.testFn.argsParser);
         await testMagic(
             // magic command
@@ -122,7 +122,7 @@ describe("decoration", function() {
             "Test brief",
             ["option", "-s,--str <str>"],
         );
-        assert.strictEqual(global.testFn.doc, "Usage:  [options]<br>\n<br>\nTest brief<br>\n<br>\nOptions:<br>\n&nbsp;&nbsp;-s,--str &lt;str&gt;  <br>\n");
+        assert.strictEqual(global.testFn.doc, "Usage:  [options]<br>\n<br>\nTest brief<br>\n<br>\nOptions:<br>\n&nbsp;&nbsp;-s,--str &lt;str&gt;<br>\n");
         assert.isFunction(global.testFn.argsParser);
         await testMagic(
             // magic command
@@ -154,7 +154,7 @@ describe("decoration", function() {
             "Test brief",
             ["option", "-s,--str <str>"],
         );
-        assert.strictEqual(global.testFn.doc, "Usage:  [options]<br>\n<br>\nTest brief<br>\n<br>\nOptions:<br>\n&nbsp;&nbsp;-s,--str &lt;str&gt;  <br>\n");
+        assert.strictEqual(global.testFn.doc, "Usage:  [options]<br>\n<br>\nTest brief<br>\n<br>\nOptions:<br>\n&nbsp;&nbsp;-s,--str &lt;str&gt;<br>\n");
         assert.isFunction(global.testFn.argsParser);
         await testMagic(
             // magic command
