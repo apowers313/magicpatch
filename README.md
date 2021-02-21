@@ -3,15 +3,11 @@
 magicpatch makes the [Jupyter](https://jupyter.org/) [IJavascript](http://n-riesco.github.io/ijavascript) kernel as close as possible to the [IPython experience](https://ipython.readthedocs.io/en/stable/interactive/reference.html#interactive-use) by adding `%magic` commands, `!shell` execution, `{variable}` substitution, and more! You can find examples in [this Jupyter notebook](https://github.com/apowers313/magicpatch/blob/master/examples/magicdemo.ipynb).
 
 # Install
-In Linux or MacOS:
 ``` sh
-# install IJavascript as usual
+# IJavascript should already be installed before installing magicpatch
 npm install -g magicpatch
-ijsinstall --startup-script=`magicpatch-location`
+magicpatch-install
 ```
-
-Windows:
-[TODO: Anyone want to volunteer to figure this out and send me the output?]
 
 # Quick Demo
 ![Demo Image](./examples/quickDemo.png)
