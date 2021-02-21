@@ -4,7 +4,8 @@
   "description": "Adds IPython / Jupyter magic commands to IJavascript",
   "main": "index.js",
   "bin": {
-    "magicpatch-location": "bin/magicPatchLocation.js"
+    "magicpatch-location": "bin/magicPatchLocation.js",
+    "magicpatch-install": "bin/magicPatchInstall.js"
   },
   "directories": {
     "lib": "lib",
@@ -52,6 +53,7 @@
     "is-docker": "^2.1.1",
     "isomorphic-git": "^1.8.1",
     "node-notifier": "^9.0.0",
+    "read-pkg-up": "^7.0.1",
     "table": "^6.0.7",
     "tmp": "^0.2.1"
   }
