@@ -1,5 +1,4 @@
-require("./helpers/magicpatch");
-const {testMagic} = require("./helpers/helpers");
+const {testMagic} = require("./helpers/magicpatch");
 
 describe("%addmagic", function() {
     it("errors on magic without symbol", async function() {

@@ -1,7 +1,6 @@
 /* global $$ */
 
-require("./helpers/magicpatch");
-const {getMagic, testMagic, runCode} = require("./helpers/helpers");
+const {getMagic, runCode, testMagic} = require("./helpers/magicpatch");
 const {assert} = require("chai");
 const {decorateMagic} = $$.addMagic.utils;
 

@@ -1,5 +1,4 @@
-require("./helpers/magicpatch");
-const {testMagic} = require("./helpers/helpers");
+const {testMagic} = require("./helpers/magicpatch");
 
 describe("echo", function() {
     it("prints line", async function() {

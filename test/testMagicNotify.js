@@ -1,5 +1,4 @@
-require("./helpers/magicpatch");
-const {runCode, testMagic} = require("./helpers/helpers");
+const {runCode} = require("./helpers/magicpatch");
 const {assert} = require("chai");
 
 // TODO: these tests require OS-specific mocks of `execFile` in test/helpers/spawnMock.js

@@ -1,5 +1,4 @@
-require("./helpers/magicpatch");
-const {testMagic} = require("./helpers/helpers");
+const {testMagic} = require("./helpers/magicpatch");
 
 const echoDoc =
 `__%echo Documentation:__

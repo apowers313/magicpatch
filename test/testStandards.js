@@ -1,5 +1,4 @@
-require("./helpers/magicpatch");
-const {getMagic} = require("./helpers/helpers");
+const {getMagic} = require("./helpers/magicpatch");
 const {assert} = require("chai");
 
 // these tests are enforcing parity with IPython magics, as reported by %lsmagic (even if lots of these are stubs)

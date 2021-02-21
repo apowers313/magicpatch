@@ -1,5 +1,4 @@
-require("./helpers/magicpatch");
-const {testMagic} = require("./helpers/helpers");
+const {testMagic} = require("./helpers/magicpatch");
 const path = require("path");
 const testModulePath = path.join(__dirname, "./helpers/testModule.js");
 

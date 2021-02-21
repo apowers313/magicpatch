@@ -1,6 +1,4 @@
-require("./helpers/magicpatch");
-const {runCode, testMagic} = require("./helpers/helpers");
-const {assert} = require("chai");
+const {testMagic} = require("./helpers/magicpatch");
 
 describe("%npm", function() {
     it("executes npm", async function() {

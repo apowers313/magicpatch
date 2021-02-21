@@ -1,5 +1,4 @@
-require("./helpers/magicpatch");
-const {runCode, testMagic} = require("./helpers/helpers");
+const {runCode, testMagic} = require("./helpers/magicpatch");
 
 describe("variable substitution", function() {
     it("replaces simple variable", async function() {

@@ -1,5 +1,4 @@
-require("./helpers/magicpatch");
-const {testMagic} = require("./helpers/helpers");
+const {testMagic} = require("./helpers/magicpatch");
 const {assert} = require("chai");
 const path = require("path");
 

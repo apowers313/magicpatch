@@ -1,5 +1,4 @@
-require("./helpers/magicpatch");
-const {runCode, testMagic} = require("./helpers/helpers");
+const {runCode, testMagic} = require("./helpers/magicpatch");
 const {assert} = require("chai");
 
 let savedEnv = {};

@@ -40,6 +40,7 @@
     "eslint-plugin-jsdoc": "^30.7.13",
     "eslint-plugin-mocha": "^8.0.0",
     "eslint-plugin-old-c-programmer": "^1.0.1",
+    "magicpatch-test": "^1.1.0",
     "mocha": "^8.3.0",
     "mock-spawn": "^0.2.6",
     "mockery": "^2.1.0",
@@ -49,6 +50,7 @@
   "dependencies": {
     "commander": "^7.1.0",
     "envinfo": "^7.7.4",
+    "execa": "^5.0.0",
     "humanize-anything": "^1.1.1",
     "is-docker": "^2.1.1",
     "isomorphic-git": "^1.8.1",

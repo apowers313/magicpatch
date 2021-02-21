@@ -1,8 +1,6 @@
 /* global $$ */
 
-require("./helpers/magicpatch");
-const {runCode, testMagic} = require("./helpers/helpers");
-const {assert} = require("chai");
+const {testMagic} = require("./helpers/magicpatch");
 const path = require("path");
 
 let startDir = process.cwd();

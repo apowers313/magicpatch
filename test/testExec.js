@@ -1,5 +1,4 @@
-require("./helpers/magicpatch");
-const {testMagic} = require("./helpers/helpers");
+const {testMagic} = require("./helpers/magicpatch");
 const {assert} = require("chai");
 const stdMocks = require("std-mocks");
 let {exec} = global.$$.addMagic.utils;

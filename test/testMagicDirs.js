@@ -1,5 +1,4 @@
-require("./helpers/magicpatch");
-const {runCode} = require("./helpers/helpers");
+const {runCode} = require("./helpers/magicpatch");
 const {assert} = require("chai");
 
 describe("%dirs", function() {

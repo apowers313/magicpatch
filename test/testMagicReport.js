@@ -1,5 +1,4 @@
-require("./helpers/magicpatch");
-const {runCode, testMagic} = require("./helpers/helpers");
+const {runCode} = require("./helpers/magicpatch");
 const {assert} = require("chai");
 
 // TODO: setup mocks for the dozens of different binaries that this runs
