@@ -5,7 +5,7 @@ const path = require("path");
 
 const cwd = process.cwd();
 
-describe.only("require", function() {
+describe("require", function() {
     afterEach(function() {
         process.chdir(cwd);
     });
