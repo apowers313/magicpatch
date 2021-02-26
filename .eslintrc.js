@@ -3,6 +3,6 @@ module.exports = {
         "plugin:old-c-programmer/node",
     ],
     rules: {
-        "max-len": "off",
+        "jsdoc/require-jsdoc": "off",
     },
 };
