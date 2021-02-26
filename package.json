@@ -14,7 +14,8 @@
   "scripts": {
     "lint": "gulp lint",
     "test": "gulp test",
-    "coverage": "nyc --reporter=lcov --reporter=text-summary npm test"
+    "coverage": "nyc --reporter=lcov --reporter=text-summary npm test",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -77,6 +78,11 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "gulp test:quiet",
       "pre-push": "gulp ready"
+    }
+  },
+  "standard-version": {
+    "skip": {
+      "commit": true
     }
   },
   "config": {
