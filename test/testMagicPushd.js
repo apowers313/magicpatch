@@ -49,10 +49,18 @@ describe("%pushd", function() {
     });
 
     it("pushes named directory", async function() {
-        let tmpPath = path.resolve("/tmp");
+        let tgtPath; let tmpPath;
+        if (process.platform === "win32") {
+            tmpPath = path.resolve("C:\\");
+            tgtPath = "C:\\";
+        } else {
+            tmpPath = path.resolve("/tmp");
+            tgtPath = "/tmp";
+        }
+
         await testMagic(
             // magic command
-            "%pushd /tmp\n",
+            `%pushd ${tgtPath}\n`,
             // return value
             [tmpPath],
             // stdout
