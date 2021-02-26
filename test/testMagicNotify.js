@@ -3,6 +3,7 @@ const {assert} = require("chai");
 
 // TODO: these tests require OS-specific mocks of `execFile` in test/helpers/spawnMock.js
 // run manually by deleting .skip until those mocks are implemented
+// eslint-disable-next-line mocha/no-skipped-tests
 describe.skip("%notify", function() {
     it("notifies with default message", async function() {
         this.timeout(20000);

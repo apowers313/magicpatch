@@ -3,6 +3,7 @@ const {assert} = require("chai");
 
 // TODO: setup mocks for the dozens of different binaries that this runs
 // skip until mocks are in place
+// eslint-disable-next-line mocha/no-skipped-tests
 describe.skip("%report", function() {
     it("shows report", async function() {
         this.timeout(10000);
