@@ -60,7 +60,7 @@ describe("%pushd", function() {
             // stderr
             [],
             // print output
-            // true,
+            true,
         );
         assert.strictEqual(global._dirStack.length, 1);
         assert.strictEqual(global._dirStack[0], tmpPath);
