@@ -3,6 +3,7 @@
 const {getMagic, runCode, testMagic} = require("./helpers/magicpatch");
 const {assert} = require("chai");
 const {decorateMagic} = $$.addMagic.utils;
+const path = require("path");
 
 describe("decoration", function() {
     afterEach(function() {
@@ -67,7 +68,8 @@ describe("decoration", function() {
     it("adds file", function() {
         let magicObj = getMagic("%echo");
         assert.strictEqual(magicObj.file, magicObj.fn.file);
-        assert.match(magicObj.file, /\/magicpatch\/lib\/magics\/echo\.js$/);
+        let filePath = path.resolve(__dirname, "../lib/magics/echo.js");
+        assert.strictEqual(magicObj.file, filePath);
     });
 
     it("adds option", async function() {

@@ -16,7 +16,7 @@ describe("require", function() {
             // return value
             {source: "helpers/testModule.js", worked: true},
             // stdout
-            [/\[ loading \//],
+            [/^\[ loading .*[\\/]testModule.js ]\n$/],
             // stderr
             [],
             // show output
@@ -46,7 +46,7 @@ describe("require", function() {
             // return value
             {source: "helpers/testModule.js", worked: true},
             // stdout
-            [/\[ loading \//],
+            [/^\[ loading .*[\\/]testModule.js ]\n$/],
             // stderr
             [],
             // show output
@@ -65,7 +65,7 @@ describe("require", function() {
             // return value
             {source: "helpers/testModule.js", worked: true},
             // stdout
-            [/\[ loading \//],
+            [/^\[ loading .*[\\/]testModule.js ]\n$/],
             // stderr
             [],
             // show output
@@ -81,7 +81,7 @@ describe("require", function() {
             // return value
             require("mocha"),
             // stdout
-            [/\[ loading \//],
+            [/^\[ loading .*[\\/]mocha ]\n$/],
             // stderr
             [],
             // show output
@@ -97,7 +97,7 @@ describe("require", function() {
             // return value
             {source: "helpers/testModule.js", worked: true},
             // stdout
-            [/\[ loading \//],
+            [/^\[ loading .*[\\/]testModule.js ]\n$/],
             // stderr
             [],
             // show output
@@ -113,7 +113,7 @@ describe("require", function() {
             // return value
             {source: "helpers/testModule.js", worked: true},
             // stdout
-            [/\[ loading \//],
+            [/^\[ loading .*[\\/]testModule.js ]\n$/],
             // stderr
             [],
             // show output
@@ -133,8 +133,8 @@ describe("require", function() {
             ],
             // stdout
             [
-                /\[ loading \/.*testModule\.js ]\n$/,
-                /\[ loading \/.*testModule2\.js ]\n$/,
+                /\[ loading [/\\].*testModule\.js ]\n$/,
+                /\[ loading [/\\].*testModule2\.js ]\n$/,
             ],
             // stderr
             [],

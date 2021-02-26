@@ -17,7 +17,7 @@ describe("cell magic", function() {
                 "loop 2\n" +
                 "loop 3\n" +
                 "loop 4\n",
-                "[ process 'bash /",
+                "[ process 'bash ",
             ],
             // stderr
             [],

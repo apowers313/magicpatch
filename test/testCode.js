@@ -7,7 +7,7 @@ const echoSource =
 ${getMagic("%echo").fn.toString()}
 \`\`\`
 
-__File:__ /`;
+__File:__ `;
 
 describe("source", function() {
     it("question mark before", async function() {

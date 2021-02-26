@@ -12,7 +12,7 @@ describe("variable assignment", function() {
             undefined,
             // stdout
             [
-                /^\[ loading \//,
+                /^\[ loading .*[\\/]testModule.js ]\n$/,
                 "{ source: 'helpers/testModule.js', worked: true }",
             ],
             // stderr
@@ -70,7 +70,7 @@ describe("variable assignment", function() {
             undefined,
             // stdout
             [
-                /^\[ loading \//,
+                /^\[ loading .*[\\/]testModule.js ]\n$/,
                 "{ source: 'helpers/testModule.js', worked: true }",
             ],
             // stderr
@@ -89,7 +89,7 @@ describe("variable assignment", function() {
             undefined,
             // stdout
             [
-                /^\[ loading \//,
+                /^\[ loading .*[\\/]testModule.js ]\n$/,
                 "{ source: 'helpers/testModule.js', worked: true }",
             ],
             // stderr
@@ -108,7 +108,7 @@ describe("variable assignment", function() {
             undefined,
             // stdout
             [
-                /^\[ loading \//,
+                /^\[ loading .*[\\/]testModule.js ]\n$/,
                 "{ source: 'helpers/testModule.js', worked: true }",
             ],
             // stderr
@@ -127,7 +127,7 @@ describe("variable assignment", function() {
             undefined,
             // stdout
             [
-                /^\[ loading \//,
+                /^\[ loading .*[\\/]testModule.js ]\n$/,
                 "{ source: 'helpers/testModule.js', worked: true }",
             ],
             // stderr
@@ -146,7 +146,7 @@ describe("variable assignment", function() {
             undefined,
             // stdout
             [
-                /^\[ loading \//,
+                /^\[ loading .*[\\/]testModule.js ]\n$/,
                 "{ source: 'helpers/testModule.js', worked: true }",
             ],
             // stderr
@@ -165,7 +165,7 @@ describe("variable assignment", function() {
             undefined,
             // stdout
             [
-                /^\[ loading \//,
+                /^\[ loading .*[\\/]testModule.js ]\n$/,
                 "{ source: 'helpers/testModule.js', worked: true }",
             ],
             // stderr
