@@ -1,4 +1,5 @@
 /* eslint-disable jsdoc/require-jsdoc */
+/* istanbul ignore file */
 
 const {watch, src, /* dest, series,*/ parallel} = require("gulp");
 const mocha = require("gulp-mocha");
