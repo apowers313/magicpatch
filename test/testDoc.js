@@ -8,7 +8,7 @@ Usage: %echo &lt;string&gt;<br>
 Write arguments to the standard output.<br>
 
 
-__File:__ /`;
+__File:__ `;
 
 describe("docs", function() {
     it("question mark before", async function() {
