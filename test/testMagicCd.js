@@ -133,7 +133,6 @@ describe("%cd", function() {
     });
 
     it("errors on non-number history arg", async function() {
-        let destPath = path.resolve(startDir, "..");
         await testMagic(
             // magic command
             "%cd -n 0a",
