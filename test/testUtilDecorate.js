@@ -102,7 +102,17 @@ describe("decoration", function() {
             },
         );
         assert.strictEqual(global.testFn.brief, "Test brief");
-        assert.strictEqual(global.testFn.doc, "Usage: %test [command]<br>\n<br>\nTest brief<br>\n<br>\nCommands:<br>\n&nbsp;&nbsp;clone &lt;source&gt; [destination]  clone a repository into a newly created directory<br>\n&nbsp;&nbsp;help [command]                display help for command<br>\n");
+        assert.strictEqual(global.testFn.doc,
+            `Usage: %test [command]<br>
+<br>
+Test brief<br>
+<br>
+Commands:<br>
+&nbsp;&nbsp;clone &lt;source&gt; [destination]  clone a repository into a newly created<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;directory<br>
+&nbsp;&nbsp;help [command]                display help for command<br>
+`,
+        );
         assert.strictEqual(global.testFn.file, "fakepath");
         assert.isFunction(global.testFn.argsParser);
     });
@@ -125,7 +135,19 @@ describe("decoration", function() {
             },
         );
         assert.strictEqual(global.testFn.brief, "Test brief");
-        assert.strictEqual(global.testFn.doc, "Usage: %test [options] [command]<br>\n<br>\nTest brief<br>\n<br>\nOptions:<br>\n&nbsp;&nbsp;-f,--foo                      does that foo thing<br>\n<br>\nCommands:<br>\n&nbsp;&nbsp;clone &lt;source&gt; [destination]  clone a repository into a newly created directory<br>\n&nbsp;&nbsp;help [command]                display help for command<br>\n");
+        assert.strictEqual(global.testFn.doc,
+            `Usage: %test [options] [command]<br>
+<br>
+Test brief<br>
+<br>
+Options:<br>
+&nbsp;&nbsp;-f,--foo                      does that foo thing<br>
+<br>\nCommands:<br>
+&nbsp;&nbsp;clone &lt;source&gt; [destination]  clone a repository into a newly created<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;directory<br>
+&nbsp;&nbsp;help [command]                display help for command<br>
+`,
+        );
         assert.strictEqual(global.testFn.file, "fakepath");
         assert.isFunction(global.testFn.argsParser);
     });

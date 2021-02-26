@@ -12,7 +12,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test",
+    "lint": "gulp lint",
+    "test": "gulp test",
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm test"
   },
   "repository": {
@@ -40,6 +41,9 @@
     "eslint-plugin-jsdoc": "^30.7.13",
     "eslint-plugin-mocha": "^8.0.0",
     "eslint-plugin-old-c-programmer": "^1.0.1",
+    "gulp": "^4.0.2",
+    "gulp-eslint7": "^0.3.0",
+    "gulp-mocha": "^8.0.0",
     "magicpatch-test": "^1.1.0",
     "mocha": "^8.3.0",
     "mock-spawn": "^0.2.6",
