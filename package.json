@@ -34,9 +34,12 @@
   },
   "homepage": "https://github.com/apowers313/magicpatch#readme",
   "devDependencies": {
+    "@commitlint/cli": "^12.0.0",
+    "@commitlint/config-conventional": "^12.0.0",
     "browser-sync": "^2.26.14",
     "chai": "^4.3.0",
     "chai-string": "^1.5.0",
+    "cz-conventional-changelog": "^3.3.0",
     "doctoc": "^2.0.0",
     "eslint": "^7.20.0",
     "eslint-plugin-jsdoc": "^30.7.13",
@@ -45,11 +48,15 @@
     "gulp": "^4.0.2",
     "gulp-eslint7": "^0.3.0",
     "gulp-mocha": "^8.0.0",
+    "husky": "^4.3.0",
+    "is-ci": "^3.0.0",
     "magicpatch-test": "^1.1.0",
     "mocha": "^8.3.0",
     "mock-spawn": "^0.2.6",
     "mockery": "^2.1.0",
     "nyc": "^15.1.0",
+    "pinst": "^2.1.6",
+    "standard-version": "^9.1.1",
     "std-mocks": "^1.0.1"
   },
   "dependencies": {
@@ -63,5 +70,18 @@
     "read-pkg-up": "^7.0.1",
     "table": "^6.0.7",
     "tmp": "^0.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "gulp test:quiet",
+      "pre-push": "gulp ready"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
