@@ -352,7 +352,7 @@ describe("automagic", function() {
             // stderr
             [],
             // show output
-            true,
+            // true,
         );
         await testMagic(
             // magic command
@@ -376,7 +376,7 @@ describe("automagic", function() {
             // stderr
             [],
             // show output
-            true,
+            // true,
         );
     });
 });
