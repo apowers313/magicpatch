@@ -1,5 +1,7 @@
 ![Magic Patch Logo](./logo/magicpatch_logo@0.25x.png)
 
+![Build Status](https://github.com/apowers313/magicpatch/workflows/build/badge.svg) [![Coverage Status](https://coveralls.io/repos/github/apowers313/magicpatch/badge.svg?branch=master)](https://coveralls.io/github/apowers313/magicpatch?branch=master)
+
 magicpatch makes the [Jupyter](https://jupyter.org/) [IJavascript](http://n-riesco.github.io/ijavascript) kernel as close as possible to the [IPython experience](https://ipython.readthedocs.io/en/stable/interactive/reference.html#interactive-use) by adding `%magic` commands, `!shell` execution, `{variable}` substitution, and more! You can find examples in [this Jupyter notebook](https://github.com/apowers313/magicpatch/blob/master/examples/magicdemo.ipynb).
 
 # Install

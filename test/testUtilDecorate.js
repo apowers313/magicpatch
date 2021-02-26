@@ -97,7 +97,7 @@ describe("decoration", function() {
             (program) => {
                 program
                     .command("clone <source> [destination]")
-                    .description("clone a repository into a newly created directory")
+                    .description("clone a repository")
                     .action(() => {
                         console.log("clone command called");
                     });
@@ -110,8 +110,7 @@ describe("decoration", function() {
 Test brief<br>
 <br>
 Commands:<br>
-&nbsp;&nbsp;clone &lt;source&gt; [destination]  clone a repository into a newly created<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;directory<br>
+&nbsp;&nbsp;clone &lt;source&gt; [destination]  clone a repository<br>
 &nbsp;&nbsp;help [command]                display help for command<br>
 `,
         );
@@ -130,7 +129,7 @@ Commands:<br>
             (program) => {
                 program
                     .command("clone <source> [destination]")
-                    .description("clone a repository into a newly created directory")
+                    .description("clone a repository")
                     .action(() => {
                         console.log("clone command called");
                     });
@@ -145,8 +144,7 @@ Test brief<br>
 Options:<br>
 &nbsp;&nbsp;-f,--foo                      does that foo thing<br>
 <br>\nCommands:<br>
-&nbsp;&nbsp;clone &lt;source&gt; [destination]  clone a repository into a newly created<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;directory<br>
+&nbsp;&nbsp;clone &lt;source&gt; [destination]  clone a repository<br>
 &nbsp;&nbsp;help [command]                display help for command<br>
 `,
         );

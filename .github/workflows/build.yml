@@ -100,36 +100,36 @@ jobs:
   #       CLEAN: true
 
 
-  # coverage:
-  #   needs: test
+  coverage:
+    needs: test
 
-  #   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #   - name: Git checkout
-  #     uses: actions/checkout@v2
+    steps:
+    - name: Git checkout
+      uses: actions/checkout@v2
 
-  #   - name: Use Node.js ${{ matrix.node-version }}
-  #     uses: actions/setup-node@v1
-  #     with:
-  #       node-version: ${{ matrix.node-version }}
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
 
-  #   - name: Cache Node Modules
-  #     id: cache-node-modules
-  #     uses: actions/cache@v2
-  #     with:
-  #       path: node_modules
-  #       key: node-modules-${{ hashFiles('package-lock.json') }}
+    - name: Cache Node Modules
+      id: cache-node-modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('package-lock.json') }}
 
-  #   - name: Install
-  #     if: steps.cache.outputs.cache-hit != 'true'
-  #     run: npm install
+    - name: Install
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm install
 
-  #   - name: Create Coverage
-  #     run: npm run coverage
+    - name: Create Coverage
+      run: npm run coverage
 
-  #   - name: Publish Coverage
-  #     uses: coverallsapp/github-action@master
-  #     with:
-  #       github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Publish Coverage
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
 

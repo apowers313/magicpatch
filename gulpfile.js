@@ -7,7 +7,7 @@ const eslint = require("gulp-eslint7");
 // const nodemon = require("gulp-nodemon");
 // const istanbul = require("gulp-istanbul"); // gulp-istanbul is broken; hasn't been updated in 3 years
 let {spawn} = require("child_process");
-// const browserSync = require("browser-sync").create();
+const browserSync = require("browser-sync").create();
 
 const sources = ["lib/*.js", "index.js"];
 const tests = ["test/*.js"];
@@ -62,38 +62,38 @@ function watchLint() {
 /* ************
  * COVERAGE
  **************/
-// function runIstanbul(done) {
-//     let cmd = "nyc";
-//     let args = [
-//         "--reporter=text",
-//         "--reporter=html",
-//         "--reporter=lcov",
-//         "mocha",
-//     ];
-//     let opts = {
-//         stdio: "inherit",
-//     };
-//     spawn(cmd, args, opts).on("close", done);
-// }
+function runIstanbul(done) {
+    let cmd = "nyc";
+    let args = [
+        "--reporter=text",
+        "--reporter=html",
+        "--reporter=lcov",
+        "mocha",
+    ];
+    let opts = {
+        stdio: "inherit",
+    };
+    spawn(cmd, args, opts).on("close", done);
+}
 
-// const coverage = runIstanbul;
+const coverage = runIstanbul;
 
-// function coverageRefresh() {
-//     return watch(js, runIstanbul);
-// }
+function coverageRefresh() {
+    return watch(js, runIstanbul);
+}
 
-// function coverageBrowserSync() {
-//     browserSync.init({
-//         server: {
-//             baseDir: "./coverage",
-//         },
-//     });
+function coverageBrowserSync() {
+    browserSync.init({
+        server: {
+            baseDir: "./coverage",
+        },
+    });
 
-//     watch("coverage/*").on("change", browserSync.reload);
-//     watch("coverage/*").on("add", browserSync.reload);
-// }
+    watch("coverage/*").on("change", browserSync.reload);
+    watch("coverage/*").on("add", browserSync.reload);
+}
 
-// const watchCoverage = parallel(coverageBrowserSync, coverageRefresh);
+const watchCoverage = parallel(coverageBrowserSync, coverageRefresh);
 
 /* ************
  * DOCS
@@ -129,25 +129,6 @@ function watchLint() {
 // const watchDocs = parallel(docsBrowserSync, docsRefresh);
 
 /* ************
- * MAIN
- **************/
-// function watchMain(done) {
-//     let stream = nodemon({script: "main.js",
-//         watch: js,
-//         done: done,
-//     });
-
-//     stream
-//         .on("restart", function() {
-//             console.log("Restarting...");
-//         })
-//         .on("crash", function() {
-//             console.error("Application crashed!\n");
-//             stream.emit("restart", 10); // restart the server in 10 seconds
-//         });
-// }
-
-/* ************
  * RELEASE
  **************/
 const ready = parallel(test, audit, lint /* coverage, docs */);
@@ -168,13 +149,12 @@ module.exports = {
     test,
     "test:quiet": testQuiet,
     lint,
-    // coverage,
+    coverage,
     // docs,
     ready,
     "default": watchTest,
     "dev:test": watchTest,
     "dev:lint": watchLint,
-    // "dev:coverage": watchCoverage,
+    "dev:coverage": watchCoverage,
     // "dev:docs": watchDocs,
-    // "dev:main": watchMain,
 };

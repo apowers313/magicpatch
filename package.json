@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/apowers313/magicpatch#readme",
   "devDependencies": {
+    "browser-sync": "^2.26.14",
     "chai": "^4.3.0",
     "chai-string": "^1.5.0",
     "doctoc": "^2.0.0",
