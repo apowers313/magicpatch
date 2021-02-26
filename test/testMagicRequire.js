@@ -133,8 +133,8 @@ describe("require", function() {
             ],
             // stdout
             [
-                /\[ loading [/\\].*testModule\.js ]\n$/,
-                /\[ loading [/\\].*testModule2\.js ]\n$/,
+                /\[ loading .*[/\\]testModule\.js ]\n$/,
+                /\[ loading .*[/\\]testModule2\.js ]\n$/,
             ],
             // stderr
             [],

@@ -66,7 +66,7 @@ describe("variable substitution", function() {
             // return value
             {source: "helpers/testModule.js", worked: true},
             // stdout
-            [/\[ loading \//],
+            [/^\[ loading .*[\\/]testModule.js ]\n$/],
             // stderr
             [],
             // show output

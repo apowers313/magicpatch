@@ -17,9 +17,7 @@ describe("%pushd", function() {
             // return value
             [startDir],
             // stdout
-            process.platform === "win32" ?
-                [/.*/] : // windows prints something like "D:\\Tmp"
-                [],
+            [],
             // stderr
             [],
             // print output
