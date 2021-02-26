@@ -1,0 +1,135 @@
+name: build
+
+on: [push]
+
+jobs:
+  lint:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: ['14']
+
+    steps:
+    - name: Git checkout
+      uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install
+      run: npm install
+
+    - name: Security Audit
+      run: npm audit
+
+    - name: Lint
+      run: npm run lint
+
+  test:
+
+    needs: lint
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [windows-latest, windows-2016, ubuntu-latest, ubuntu-18.04, ubuntu-16.04, macos-latest]
+        node-version: [10.x, 12.x, 14.x]
+
+    steps:
+    - name: Git checkout
+      uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Cache Node Modules
+      id: cache-node-modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: node-modules-${{ hashFiles('package-lock.json') }}
+
+    - name: Install
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: npm install
+
+    - name: Test
+      run: npm test
+
+  # docs:
+  #   needs: test
+
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #   - name: Git checkout
+  #     uses: actions/checkout@v2
+
+  #   - name: Use Node.js ${{ matrix.node-version }}
+  #     uses: actions/setup-node@v1
+  #     with:
+  #       node-version: ${{ matrix.node-version }}
+
+  #   - name: Cache Node Modules
+  #     id: cache-node-modules
+  #     uses: actions/cache@v2
+  #     with:
+  #       path: node_modules
+  #       key: node-modules-${{ hashFiles('package-lock.json') }}
+
+  #   - name: Install
+  #     if: steps.cache.outputs.cache-hit != 'true'
+  #     run: npm install
+
+  #   - name: Create Docs
+  #     run: npm run docs
+
+  #   - name: Publish Docs
+  #     uses: JamesIves/github-pages-deploy-action@3.7.1
+  #     with:
+  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       BRANCH: gh-pages
+  #       FOLDER: docs
+  #       CLEAN: true
+
+
+  # coverage:
+  #   needs: test
+
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #   - name: Git checkout
+  #     uses: actions/checkout@v2
+
+  #   - name: Use Node.js ${{ matrix.node-version }}
+  #     uses: actions/setup-node@v1
+  #     with:
+  #       node-version: ${{ matrix.node-version }}
+
+  #   - name: Cache Node Modules
+  #     id: cache-node-modules
+  #     uses: actions/cache@v2
+  #     with:
+  #       path: node_modules
+  #       key: node-modules-${{ hashFiles('package-lock.json') }}
+
+  #   - name: Install
+  #     if: steps.cache.outputs.cache-hit != 'true'
+  #     run: npm install
+
+  #   - name: Create Coverage
+  #     run: npm run coverage
+
+  #   - name: Publish Coverage
+  #     uses: coverallsapp/github-action@master
+  #     with:
+  #       github-token: ${{ secrets.GITHUB_TOKEN }}
+
