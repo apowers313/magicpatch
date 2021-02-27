@@ -132,7 +132,7 @@ const watchCoverage = parallel(coverageBrowserSync, coverageRefresh);
 /* ************
  * RELEASE
  **************/
-const ready = parallel(test, audit, lint /* coverage, docs */);
+const ready = parallel(test, audit, lint, coverage /* docs */);
 
 function audit(done) {
     let cmd = "npm";
