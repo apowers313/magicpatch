@@ -28,6 +28,7 @@ jobs:
 
     - name: List Modules
       run: npm ls
+      continue-on-error: true
 
     - name: Lint
       run: npm run lint
