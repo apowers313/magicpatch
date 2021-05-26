@@ -67,7 +67,7 @@
     "humanize-anything": "^1.1.1",
     "is-docker": "^2.2.1",
     "isomorphic-git": "^1.8.2",
-    "node-notifier": "^9.0.1",
+    "node-notifier": "^10.0.0",
     "table": "^6.3.4",
     "tmp": "^0.2.1"
   },
