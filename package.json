@@ -15,7 +15,7 @@
     "lint": "gulp lint",
     "test": "gulp test",
     "coverage": "nyc --reporter=lcov --reporter=text-summary npm test",
-    "release": "standard-version --no-verify"
+    "release": "standard-version -- --no-verify"
   },
   "repository": {
     "type": "git",
