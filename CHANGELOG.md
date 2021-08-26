@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.12.4](https://github.com/apowers313/magicpatch/compare/v0.12.3...v0.12.4) (2021-08-26)
+
+
+### Build System
+
+* upgrade dependencies ([7f65bf5](https://github.com/apowers313/magicpatch/commit/7f65bf5fbdbfbc7ff245ca8f4472ff4ead49a9b1)), closes [#41](https://github.com/apowers313/magicpatch/issues/41) [#50](https://github.com/apowers313/magicpatch/issues/50) [#52](https://github.com/apowers313/magicpatch/issues/52) [#53](https://github.com/apowers313/magicpatch/issues/53) [#56](https://github.com/apowers313/magicpatch/issues/56) [#63](https://github.com/apowers313/magicpatch/issues/63) [#66](https://github.com/apowers313/magicpatch/issues/66) [#67](https://github.com/apowers313/magicpatch/issues/67) [#68](https://github.com/apowers313/magicpatch/issues/68) [#70](https://github.com/apowers313/magicpatch/issues/70)
+
 ### [0.12.3](https://github.com/apowers313/magicpatch/compare/v0.12.2...v0.12.3) (2021-04-26)
 
 
