@@ -65,7 +65,7 @@
     "execa": "^5.1.1",
     "find-package-json": "^1.2.0",
     "humanize-anything": "^1.1.1",
-    "is-docker": "^2.2.1",
+    "is-docker": "^3.0.0",
     "isomorphic-git": "^1.8.2",
     "node-notifier": "^10.0.0",
     "table": "^6.7.1",
