@@ -66,7 +66,7 @@
     "find-package-json": "^1.2.0",
     "humanize-anything": "^1.1.1",
     "is-docker": "^2.2.1",
-    "isomorphic-git": "^1.8.2",
+    "isomorphic-git": "^1.11.1",
     "node-notifier": "^10.0.0",
     "table": "^6.7.1",
     "tmp": "^0.2.1"
