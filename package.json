@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/apowers313/magicpatch#readme",
   "devDependencies": {
-    "@commitlint/cli": "^13.1.0",
+    "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^13.1.0",
     "browser-sync": "^2.26.14",
     "chai": "^4.3.4",
